@@ -53,6 +53,7 @@ export class AddAdmin{
         await this.page.locator(this.statusInput).click();
         await this.page.locator(this.statusEnabledoption).click();
         await this.page.locator(this.searchbtn).click();
+        await this.page.waitForTimeout(2000);
         const result = await this.page.locator(this.searchResultText).textContent();
         this.expect(result.match(/\d/g).toLocaleString()).toBe("1");
         await this.page.locator(this.deletebtn).click();

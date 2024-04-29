@@ -53,6 +53,7 @@ export class AddVacancy {
     await this.page.click(this.statusInput);
     await this.page.click(this.statusActiveoption);
     await this.page.click(this.searchbtn);
+    await this.page.waitForTimeout(2000);
     const result = await this.page.locator(this.resultText).textContent();
     this.expect(result.match(/\d/g).toLocaleString()).toBe("1");
     await this.page.click(this.deletebtn);
