@@ -6,6 +6,7 @@ Playwright automation project helps to do Sanity and Regression testing on [Oran
 - [OrangeHRM Playwright Automation Project](#orangeHRM-playwright-automation-project)
     - [Table of Contents](#table-of-contents)
         - [About Playwright](#about-playwright)
+            - [How to install and run playwright project](#how-to-install-and-run-playwright-project-in-vs-code-:)
         - [Software Requirements and Supported platforms](#software-requirements)
         - [Playwright classes javascript file](#maven-project)
             - [Login Account](#login-account)
@@ -17,11 +18,12 @@ Playwright automation project helps to do Sanity and Regression testing on [Oran
 ## About Playwright
 [Playwright](https://playwright.dev/) Test was created specifically to accommodate the needs of end-to-end testing. Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox. Test on Windows, Linux, and macOS, locally or on CI, headless or headed with native mobile emulation of Google Chrome for Android and Mobile Safari.
 
-### How to install and run playwright project in vs code :</br>
+### How to install and run playwright project in vs code :
+</br>
 **1.** Open VS code and go to **"View > Command Pallete"** or ``` Ctrl + Shift + P ```</br>
 **2.** Search and select **"Install Playwright"** command then select checkboxes only whichever you wants - Browsers, Typescript or Javascript and github. It will install all needed playwright packages.
 
-<img src="https://miro.medium.com/v2/resize:fit:1400/1*qhq9IchY4htEom0KmyizZQ.png" height="250" width="500" border="2px solid red" title="Playwright options cmd pallete"></br>
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*qhq9IchY4htEom0KmyizZQ.png" height="250" width="500" title="Playwright options cmd pallete"></br>
 **3.** By default, "tests" folder is test directory whichever files are in "tests" folder will run all in headless mode.</br>
 **4.** To run all test files in "tests" folder, run command in terminal - 
    ```
