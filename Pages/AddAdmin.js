@@ -2,7 +2,7 @@ export class AddAdmin{
     constructor(page, expect){
         this.page = page;
         this.expect = expect;
-        this.user = "";
+        this.user = " ";
         this.mainmenuAdminbtn = "//ul[@class='oxd-main-menu']//li//span[text()='Admin']";
         this.addbtn = "//button[normalize-space()='Add']";
         this.userRoleInput = "//div[@class='oxd-input-group oxd-input-field-bottom-space']//label[text()='User Role']/../..//div[@class='oxd-select-wrapper']";
