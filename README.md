@@ -40,12 +40,12 @@ Playwright automation project helps to do Sanity and Regression testing on [Oran
    ```
    <img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648215659/debbie.codes/blog/2022/test-report_dio73s.png" height="300" width="500" title="Playwright options cmd pallete"></br>
    
-## Software Requirements 
+### Software Requirements 
 - [Google chrome](https://www.google.com/chrome/?brand=CHBD&gclid=CjwKCAiAhqCdBhB0EiwAH8M_GmD_PXuQf4ajyAGVFnDsf1qPOQHr0SuP7KztEpC0adX9mu29qRPhLhoC5GIQAvD_BwE&gclsrc=aw.ds) v.93 onwards  
 - Install [Node.js](https://nodejs.org/en/download/) to run javascript </br>
 - [VS Code](https://code.visualstudio.com/download) or other IDE for javascript
 
-## Platforms
+### Platforms
 Microsoft Windows 10 64-bit on x86-64  
 MacOs-64  
 Red Hat Enterprise Linux Server 7.0 64-bit on x86-64
@@ -54,7 +54,7 @@ Red Hat Enterprise Linux Server 7.0 64-bit on x86-64
 To test various operations and actions on web pages, we have created class contains javascript pages so we can reuse functions and variables. In that pages created instance of inbuilt variables like page, expect, locators and async functions.
 - Created instance in [orangehrm.spec.js](.//tests//Orangehrm.spec.js) file to invoke classes functions.
 - In this using [beforeEach](https://playwright.dev/docs/api/class-test#test-before-each) and [afterEach](https://playwright.dev/docs/api/class-test#test-after-each) method which run before and after test of every test excution with run parallel mode so it can execute all tests faster.
-- 
+  
 ### Login Page
 - On orangehrm website login page has provided username and password, in this file performing various validations to login with valid and invalid username and password.
 - Also logging out after tests has been done. You can see code on [Login page](.//Pages//LoginPage.js)
@@ -62,12 +62,14 @@ To test various operations and actions on web pages, we have created class conta
 - In this we are testing image, links and contents is visible and length as per expections.
 - Checking above test on each menu list items. You can see code on [Elements Validation](.//Pages//ElementsValidation.js)
 ### Admin Page
-admin(.//Pages//AddAdmin.js)
+- Orangehrm has access to add another admin by entering existing admin name and password.
+- After adding verifying added details are valid. You can see code on [Admin Page](.//Pages//AddAdmin.js)
 ### PIM Page
-pim(.//Pages//AddEmployee.js)
+- Verify able to add and delet employee details and able to search added employee is exist by searching id which will generate by system. You can see code on [PIM Page](.//Pages//AddEmployee.js).
 ### Recruitment Page
-vacancy(.//Pages//AddVacancy.js)
+- Verify able to add vacancy name with their valid hiring manager, currently job title is QA engineer selected.
+- Then able to search job details by entering deatils. You can see code on[Recruitment Page](.//Pages//AddVacancy.js)
 
-<h5 style="color:red">Note: This repository has some issues in code, working in progress</h5>
+## License
 
-<font color="red">Your text here</font>
+<h4 style="color:red">Note: This repository has some issues in code, working in progress</h4>
