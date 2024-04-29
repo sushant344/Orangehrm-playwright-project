@@ -5,6 +5,8 @@ Playwright automation project helps to do Sanity and Regression testing on [Oran
 ## Table of Contents
 - [OrangeHRM Playwright Automation Project](#orangehrm-playwright-automation-project)
     - [Table of Contents](#table-of-contents)
+        - [Test Documentations](#test-documentations)
+            - [Test cases](#test-cases)
         - [About Playwright](#about-playwright)
             - [How to install and run playwright project](#how-to-install-and-run-playwright-project-in-vs-code)
         - [Software Requirements and Supported platforms](#software-requirements)
@@ -15,6 +17,10 @@ Playwright automation project helps to do Sanity and Regression testing on [Oran
             - [PIM Page](#pim-page)
             - [Recruitment Page](#recruitment-page)
         - [License](#license)
+## Test Documentations
+### Test cases
+In [Test cases google sheets](https://docs.google.com/spreadsheets/d/1fmo0jnqB3JmEo_N_FLTYuVMx_YjIy4j_HHYslDaNru0/edit?usp=sharing) we created test scenarios and according to write test cases for various modules which mention [below](#playwright-pages). In this documention take notes which case show what result like which cases has passed and failed.
+
 ## About Playwright
 [Playwright](https://playwright.dev/) Test was created specifically to accommodate the needs of end-to-end testing. Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox. Test on Windows, Linux, and macOS, locally or on CI, headless or headed with native mobile emulation of Google Chrome for Android and Mobile Safari.
 
