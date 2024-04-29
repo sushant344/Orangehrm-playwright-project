@@ -3,25 +3,28 @@
 Playwright automation project helps to do Sanity and Regression testing on [OrangeHRM demo website](https://opensource-demo.orangehrmlive.com/web/index.php/auth/login). These website helps testers to perform automation practices and learning tester job.
 
 ## Table of Contents
-- [OrangeHRM Playwright Automation Project](#orangeHRM-playwright-automation-project)
+- [OrangeHRM Playwright Automation Project](#orangehrm-playwright-automation-project)
     - [Table of Contents](#table-of-contents)
         - [About Playwright](#about-playwright)
+            - [How to install and run playwright project](#how-to-install-and-run-playwright-project-in-vs-code)
         - [Software Requirements and Supported platforms](#software-requirements)
-        - [Playwright classes javascript file](#maven-project)
-            - [Login Account](#login-account)
+        - [Playwright classes javascript file](#playwright-pages)
+            - [Login Account](#login-page)
             - [Elements validation](#elements-validations)
-            - [Add Admin](#add-admin)
-            - [Add Employee](#add-employee)
-            - [Add Recruitment](#add-recruitment)
+            - [Admin Page](#admin-page)
+            - [PIM Page](#pim-page)
+            - [Recruitment Page](#recruitment-page)
         - [License](#license)
 ## About Playwright
 [Playwright](https://playwright.dev/) Test was created specifically to accommodate the needs of end-to-end testing. Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox. Test on Windows, Linux, and macOS, locally or on CI, headless or headed with native mobile emulation of Google Chrome for Android and Mobile Safari.
 
-### How to install and run playwright project in vs code :</br>
+### How to install and run playwright project in VS code
 **1.** Open VS code and go to **"View > Command Pallete"** or ``` Ctrl + Shift + P ```</br>
+
 **2.** Search and select **"Install Playwright"** command then select checkboxes only whichever you wants - Browsers, Typescript or Javascript and github. It will install all needed playwright packages.
 
 <img src="https://miro.medium.com/v2/resize:fit:1400/1*qhq9IchY4htEom0KmyizZQ.png" height="250" width="500" border="2px solid red" title="Playwright options cmd pallete"></br>
+
 **3.** By default, "tests" folder is test directory whichever files are in "tests" folder will run all in headless mode.</br>
 **4.** To run all test files in "tests" folder, run command in terminal - 
    ```
@@ -46,3 +49,25 @@ Playwright automation project helps to do Sanity and Regression testing on [Oran
 Microsoft Windows 10 64-bit on x86-64  
 MacOs-64  
 Red Hat Enterprise Linux Server 7.0 64-bit on x86-64
+
+## Playwright Pages
+To test various operations and actions on web pages, we have created class contains javascript pages so we can reuse functions and variables. In that pages created instance of inbuilt variables like page, expect, locators and async functions.
+- Created instance in [orangehrm.spec.js](.//tests//Orangehrm.spec.js) file to invoke classes functions.
+- In this using [beforeEach](https://playwright.dev/docs/api/class-test#test-before-each) and [afterEach](https://playwright.dev/docs/api/class-test#test-after-each) method which run before and after test of every test excution with run parallel mode so it can execute all tests faster.
+- 
+### Login Page
+- On orangehrm website login page has provided username and password, in this file performing various validations to login with valid and invalid username and password.
+- Also logging out after tests has been done. You can see code on [Login page](.//Pages//LoginPage.js)
+### Elements Validations
+- In this we are testing image, links and contents is visible and length as per expections.
+- Checking above test on each menu list items. You can see code on [Elements Validation](.//Pages//ElementsValidation.js)
+### Admin Page
+admin(.//Pages//AddAdmin.js)
+### PIM Page
+pim(.//Pages//AddEmployee.js)
+### Recruitment Page
+vacancy(.//Pages//AddVacancy.js)
+
+<h5 style="color:red">Note: This repository has some issues in code, working in progress</h5>
+
+<font color="red">Your text here</font>
