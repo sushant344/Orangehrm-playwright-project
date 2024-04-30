@@ -12,7 +12,7 @@ Playwright automation project helps to do Sanity and Regression testing on [Oran
         - [About Playwright](#about-playwright)
             - [How to install and run playwright project](#how-to-install-and-run-playwright-project-in-vs-code)
         - [Software Requirements and Supported platforms](#software-requirements)
-        - [Playwright classes javascript file](#playwright-pages)
+        - [Playwright Project Javascript Classes Files](#playwright-pages)
             - [Login Account](#login-page)
             - [Elements validation](#elements-validations)
             - [Admin Page](#admin-page)
