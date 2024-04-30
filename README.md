@@ -2,6 +2,8 @@
 
 Playwright automation project helps to do Sanity and Regression testing on [OrangeHRM demo website](https://opensource-demo.orangehrmlive.com/web/index.php/auth/login). These website helps testers to perform automation practices and learning tester job.
 
+<img src="https://www.orangehrm.com/assets/Uploads/Recruitment-ATS-Starter.webp" height="250" width="500" border="2px solid red" title="Orangehrm demo webpage">
+
 ## Table of Contents
 - [OrangeHRM Playwright Automation Project](#orangehrm-playwright-automation-project)
     - [Table of Contents](#table-of-contents)
@@ -44,7 +46,7 @@ In [Test cases google sheets](https://docs.google.com/spreadsheets/d/1fmo0jnqB3J
    ```
    npx playwright show-report
    ```
-   <img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648215659/debbie.codes/blog/2022/test-report_dio73s.png" height="300" width="500" title="Playwright options cmd pallete"></br>
+   <img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648215659/debbie.codes/blog/2022/test-report_dio73s.png" height="300" width="500" title="Playwright html report"></br>
    
 ### Software Requirements 
 - [Google chrome](https://www.google.com/chrome/?brand=CHBD&gclid=CjwKCAiAhqCdBhB0EiwAH8M_GmD_PXuQf4ajyAGVFnDsf1qPOQHr0SuP7KztEpC0adX9mu29qRPhLhoC5GIQAvD_BwE&gclsrc=aw.ds) v.93 onwards  
@@ -78,4 +80,4 @@ To test various operations and actions on web pages, we have created class conta
 
 ## License
 
-<h4 style="color:red">Note: This repository has some issues in code, working in progress</h4>
+<h4 style="color:red">Note: This repository has some issues in code... work in progress</h4>
