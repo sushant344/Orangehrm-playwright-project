@@ -9,6 +9,9 @@ export class AddEmployee{
         this.empListbtn = "//a[normalize-space()='Employee List']";
         this.empidSearchInput = "//div[@class='oxd-input-group oxd-input-field-bottom-space']//div//input[@class='oxd-input oxd-input--active']";
         this.empSearchbtn = "//button[normalize-space()='Search']";
+        this.resultText = "//div[@class='orangehrm-horizontal-padding orangehrm-vertical-padding']//span[@class='oxd-text oxd-text--span']";
+        this.deletebtn = "//i[@class='oxd-icon bi-trash']";
+        this.confirmdeletebtn = "//button[normalize-space()='Yes, Delete']";
     }
 
     async addEmployee(fname, lname){
@@ -30,11 +33,13 @@ export class AddEmployee{
         await this.page.locator(this.empSavebtn).click();
         await this.page.waitForSelector("//div[@class='orangehrm-edit-employee-name']");
         await this.page.locator(this.empListbtn).click();
-        // await this.page.locator("//div[@class='--toggle']//button[@type='button']").click();
         await this.page.locator(this.empidSearchInput).fill(empid);
         await this.page.locator(this.empSearchbtn).click();
-        await this.page.waitForTimeout(2000);
-        const result = await this.page.locator("//div[@class='orangehrm-horizontal-padding orangehrm-vertical-padding']//span[@class='oxd-text oxd-text--span']").textContent();
+        await this.page.waitForSelector(this.resultText);
+        const result = await this.page.locator(this.resultText).textContent();
         this.expect(result.match(/\d/g).toLocaleString()).toBe("1");
+        await this.page.click(this.deletebtn);
+        await this.page.click(this.confirmdeletebtn);
+        await this.expect(this.page.locator("//span[normalize-space()='No Records Found']")).toBeVisible();
     }
 }

@@ -20,14 +20,29 @@ export class AddAdmin{
         this.confirmdeletebtn = "//button[normalize-space()='Yes, Delete']";
     }
 
-    //! EmpName can be changed
-    async AddAdmindetails(EmpName, password){
+    async getAdmin(){
         await this.page.locator(this.mainmenuAdminbtn).click();
+        await this.page.waitForSelector("//div[@class='oxd-table-row oxd-table-row--with-border']");
+        const rows = await this.page.locator("//div[@class='oxd-table-row oxd-table-row--with-border']").all();
+        let arr = [];
+        for(let value of rows){
+            const allrows = await value.locator("//div[@class='oxd-table-cell oxd-padding-cell']").allTextContents();
+            arr.push(allrows)
+        }
+        const filterrows = arr.filter((elem)=>{
+            return elem[2] === "Admin" && elem[4] === "Enabled";
+        })
+        return filterrows[(Math.floor(Math.random() * filterrows.length))][3];
+    }
+
+    async AddAdmindetails(EmpName){
+        // await this.page.locator(this.mainmenuAdminbtn).click();
         await this.page.waitForSelector(this.addbtn);
         await this.page.locator(this.addbtn).click();
         await this.page.waitForSelector("//h6[normalize-space()='Add User']");
         await this.page.locator(this.userRoleInput).click();
         await this.page.locator(this.userRoleAdminoption).click();
+        await this.page.waitForTimeout(2000);
         await this.page.locator(this.empnameInput).fill(EmpName);
         await this.page.waitForTimeout(2000);
         await this.page.keyboard.press("ArrowDown");
@@ -36,8 +51,8 @@ export class AddAdmin{
         await this.page.locator(this.statusEnabledoption).click();
         this.user = `${EmpName} ${Math.floor(Math.random()*100)}`
         await this.page.locator(this.usernameInput).fill(this.user);
-        await this.page.locator(this.passwordInput).fill(password);
-        await this.page.locator(this.cpasswordInput).fill(password);
+        await this.page.locator(this.passwordInput).fill("admin123");
+        await this.page.locator(this.cpasswordInput).fill("admin123");
         await this.page.locator(this.savebtn).click();
     }
 
@@ -60,4 +75,5 @@ export class AddAdmin{
         await this.page.locator(this.confirmdeletebtn).click();
         await this.expect(await this.page.locator("//span[normalize-space()='No Records Found']")).toBeVisible();
     }
+
 }

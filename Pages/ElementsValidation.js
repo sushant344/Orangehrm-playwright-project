@@ -24,10 +24,9 @@ export class ElementsValidation{
 
     // check images --
     async checkImages(){
-      await this.page.locator(this.usernamedropdown).click();
-      const images = await this.page.$$("img");
-      for(let img of images){
-          this.expect(img.getAttribute("src")).toBeTruthy();
+      const allimages = await this.page.locator("img").all();
+      for(let img of allimages){
+        await this.expect.soft(img).toBeVisible();
       }
     }
 

@@ -53,8 +53,9 @@ test("Verify elements and navigation of each main menu list", async()=>{
 test("Verify if able to Add Admin", async()=>{
 
   const Admin = new AddAdmin(page, expect);
-  await Admin.AddAdmindetails("rama kumar Rao", "admin123");
-  await Admin.searchAdmin("rama kumar Rao");
+  const EmpName = await Admin.getAdmin();
+  await Admin.AddAdmindetails(EmpName);
+  await Admin.searchAdmin(EmpName);
 
 })
 
@@ -68,7 +69,8 @@ test("Verify if able to Add employee in PIM", async()=>{
 test("Verify if able to add job recruitment", async()=>{
 
   const vacancy = new AddVacancy(page, expect);
-  await vacancy.addVacancy("Test Engineer", "Orange Test")
-  await vacancy.searchVacancy("Test Engineer", "Orange Test")
+  const hiringManager = await vacancy.getManager();
+  await vacancy.addVacancy(hiringManager);
+  await vacancy.searchVacancy(hiringManager);
   
 })

@@ -21,15 +21,33 @@ export class AddVacancy {
     this.confirmdeletebtn = "//button[normalize-space()='Yes, Delete']";
   }
 
-  //! Hiring manager can be changed
-  async addVacancy(vacancyName, hiringManager) {
+  async getManager(){
     await this.page.click(this.recruitmenu);
     await this.page.waitForSelector("//h5[normalize-space()='Candidates']");
     await this.page.click(this.vacanciesHeaderbtn);
+    await this.page.waitForSelector("//h5[normalize-space()='Vacancies']");
+    await this.page.waitForSelector("//div[@class='oxd-table-row oxd-table-row--with-border']");
+    const rows = await this.page.locator("//div[@class='oxd-table-row oxd-table-row--with-border']").all();
+    let arr = [];
+    for(let value of rows){
+        const allrows = await value.locator("//div[@class='oxd-table-cell oxd-padding-cell']").allTextContents();
+        arr.push(allrows)
+    }
+    const filterrows = arr.filter((elem)=>{
+        return elem[3] !== " (Deleted)" && elem[4] === "Active";
+    })
+    console.log(filterrows.length);
+    return filterrows[(Math.floor(Math.random() * filterrows.length))][3];
+  }
+
+  async addVacancy(hiringManager) {
+    // await this.page.click(this.recruitmenu);
+    // await this.page.waitForSelector("//h5[normalize-space()='Candidates']");
+    // await this.page.click(this.vacanciesHeaderbtn);
     await this.page.waitForSelector(this.addbtn);
     await this.page.click(this.addbtn);
     await this.page.waitForSelector("//h6[normalize-space()='Add Vacancy']");
-    await this.page.locator(this.VacancyNameInput).fill(vacancyName);
+    await this.page.locator(this.VacancyNameInput).fill("Test Engineer");
     await this.page.click(this.JobTitleInput);
     await this.page.click(this.JobQAoption);
     await this.page.locator(this.HiringInput).fill(hiringManager);
@@ -41,13 +59,12 @@ export class AddVacancy {
     await this.page.waitForSelector("//h6[normalize-space()='Edit Vacancy']");
   }
 
-  async searchVacancy(vacancyName, hiringManager) {
+  async searchVacancy(hiringManager) {
     await this.page.click(this.vacanciesHeaderbtn);
-    await this.page.waitForSelector("//h5[normalize-space()='Vacancies']");
     await this.page.click(this.JobTitleInput);
     await this.page.click(this.JobQAoption);
     await this.page.click(this.vacancyNamedropdown);
-    await this.page.click(`//div[@class='oxd-select-option']//span[text()='${vacancyName}']`);
+    await this.page.click(`//div[@class='oxd-select-option']//span[text()='Test Engineer']`);
     await this.page.click(this.Hiringdropdown);
     await this.page.click(`//div[@class='oxd-select-option']//span[text()='${hiringManager}']`);
     await this.page.click(this.statusInput);
