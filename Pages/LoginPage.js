@@ -8,6 +8,7 @@ export class LoginPage{
     // go to login page --
     async gotoLoginpage(){
         await this.page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+        await this.expect(this.page.locator("//h5[text()='Login']")).toBeVisible()
     }
 
     // login with account --

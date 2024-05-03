@@ -21,25 +21,23 @@ export class AddEmployee{
         await this.page.getByPlaceholder("First Name").fill(fname);
         await this.page.getByPlaceholder("Last Name").fill(lname);
         const empidInput = this.page.locator(this.empidInput);
-        // await empidInput.click();
         let empid = await empidInput.inputValue();
         console.log(empid);
         empid = "0"+(Number(empid)+1).toLocaleString();
         await empidInput.fill(empid);
-        //! empid can be already exist, increase it by +1
-        // empid = await empidInput.inputValue();
         console.log(empid);
-        console.log(typeof empid);
         await this.page.locator(this.empSavebtn).click();
         await this.page.waitForSelector("//div[@class='orangehrm-edit-employee-name']");
+
+        // Search and delete employee ---
         await this.page.locator(this.empListbtn).click();
         await this.page.locator(this.empidSearchInput).fill(empid);
         await this.page.locator(this.empSearchbtn).click();
         await this.page.waitForSelector(this.resultText);
         const result = await this.page.locator(this.resultText).textContent();
-        this.expect(result.match(/\d/g).toLocaleString()).toBe("1");
+        this.expect.soft(result.match(/\d/g).toLocaleString()).toBe("1");
         await this.page.click(this.deletebtn);
         await this.page.click(this.confirmdeletebtn);
-        await this.expect(this.page.locator("//span[normalize-space()='No Records Found']")).toBeVisible();
+        await this.expect.soft(this.page.locator("//span[normalize-space()='No Records Found']")).toBeVisible();
     }
 }

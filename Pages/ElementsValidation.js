@@ -9,16 +9,16 @@ export class ElementsValidation{
     // check menu list --
     async checkmainmenuList(){
       const list = await this.page.locator(this.mainmenulist).allTextContents();
-      this.expect(list).toBeTruthy();
+      this.expect.soft(list).toBeTruthy();
       const lists = await this.page.locator(this.mainmenulist).all();
-      this.expect(lists.length).toBe(12);
+      this.expect.soft(lists.length).toBe(12);
     }
 
     // check links --
     async checkLinks(){
       const links = await this.page.$$("a");
       for(let link of links){
-        this.expect(link.getAttribute("href")).toBeTruthy();
+        this.expect.soft(link.getAttribute("href")).toBeTruthy();
       }
     }
 
@@ -36,6 +36,11 @@ export class ElementsValidation{
       for(let menulink of lists){
         if(await menulink.textContent() !== "Maintenance"){
           await menulink.click();
+          if(await this.page.locator("//h1[text()='503 Service Temporarily Unavailable']").isVisible()){
+            console.log("Broken URL: "+this.page.url());
+            await this.page.waitForTimeout(1000);
+            await this.page.reload({waitUntil: "load"});
+          }
           await this.checkLinks();
           await this.checkImages();
           await this.page.waitForTimeout(2000);

@@ -41,9 +41,6 @@ export class AddVacancy {
   }
 
   async addVacancy(hiringManager) {
-    // await this.page.click(this.recruitmenu);
-    // await this.page.waitForSelector("//h5[normalize-space()='Candidates']");
-    // await this.page.click(this.vacanciesHeaderbtn);
     await this.page.waitForSelector(this.addbtn);
     await this.page.click(this.addbtn);
     await this.page.waitForSelector("//h6[normalize-space()='Add Vacancy']");
@@ -72,9 +69,9 @@ export class AddVacancy {
     await this.page.click(this.searchbtn);
     await this.page.waitForTimeout(2000);
     const result = await this.page.locator(this.resultText).textContent();
-    this.expect(result.match(/\d/g).toLocaleString()).toBe("1");
+    this.expect.soft(result.match(/\d/g).toLocaleString()).toBe("1");
     await this.page.click(this.deletebtn);
     await this.page.click(this.confirmdeletebtn);
-    await this.expect(this.page.locator("//span[normalize-space()='No Records Found']")).toBeVisible();
+    await this.expect.soft(this.page.locator("//span[normalize-space()='No Records Found']")).toBeVisible();
   }
 }
