@@ -16,6 +16,11 @@ export class AddEmployee{
 
     async addEmployee(fname, lname){
         await this.page.locator(this.PIMselector).click();
+        if(await this.page.locator("//h1[text()='503 Service Temporarily Unavailable']").isVisible()){
+            console.log("Broken URL: "+this.page.url());
+            await this.page.waitForTimeout(1000);
+            await this.page.reload({waitUntil: "load"});
+        }
         await this.page.waitForSelector(this.addempbtn);
         await this.page.locator(this.addempbtn).click();
         await this.page.getByPlaceholder("First Name").fill(fname);
