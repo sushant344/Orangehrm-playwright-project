@@ -62,7 +62,7 @@ export class AddAdmin{
         await this.page.locator(this.userRoleInput).click();
         await this.page.locator(this.userRoleAdminoption).click();
         await this.page.locator(this.empnameInput).fill(EmpName);
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(4000);
         await this.page.keyboard.press("ArrowDown");
         await this.page.keyboard.press("Enter");
         await this.page.locator(this.statusInput).click();
